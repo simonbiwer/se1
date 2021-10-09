@@ -1,16 +1,39 @@
 package org.hbrs.se1.ws21.uebung1.control;
 
+import java.util.HashMap;
+
 public class GermanTranslator implements Translator {
 
+	private HashMap<Integer, String> zahlInString;
+
+	public GermanTranslator(){
+		zahlInString = new HashMap<>();
+		zahlInString.put(1, "eins");
+		zahlInString.put(2, "zwei");
+		zahlInString.put(3, "drei");
+		zahlInString.put(4, "vier");
+		zahlInString.put(5, "fuenf");
+		zahlInString.put(6, "sechs");
+		zahlInString.put(7, "sieben");
+		zahlInString.put(8, "acht");
+		zahlInString.put(9, "neun");
+		zahlInString.put(10, "zehn");
+	}
+
 	public String date = "Okt/2021"; // Default-Wert
+	//private String[] zahlen = {"eins", "zwei", "drei", "vier", "fuenf", "sechs", "sieben", "acht", "neun", "zehn"};
 
 	/**
 	 * Methode zur Übersetzung einer Zahl in eine String-Repraesentation
 	 */
 	public String translateNumber( int number ) {
 		// [ihr Source Code aus Übung 1-2]
+		/*if (number < 1 | number > 10){
+			return "Übersetzung der Zahl " + number +  " nicht möglich;" + " Version: " + version;
+		}
+		return zahlen[number - 1];*/
 
-		return null;
+		return zahlInString.getOrDefault(number, "Übersetzung der Zahl " + number +  " nicht möglich" + " (" + version + ")");
 	}
 		
 	/**
